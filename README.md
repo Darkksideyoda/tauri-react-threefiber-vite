@@ -31,11 +31,7 @@ The following packages are included in this boilerplate template:
 - Zustand
 - Framer Motion
 
-```console
 > :warning: Update the configuration settings in the `src-tauri/tauri.conf.json` file according to your needs.
-```
-
-
 
 ## Contributing
 
