@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useState } from 'react';
 
-import { OrbitControls } from '@react-three/drei';
+import { KeyboardControls, OrbitControls, useKeyboardControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 
 import PauseMenu from '../Menus/PauseMenu';
@@ -10,9 +10,17 @@ function Box(props: any) {
   const ref = useRef<any>();
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
+  const [, get] = useKeyboardControls();
+
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x += delta;
+      const { forward, backward } = get();
+      if (forward) {
+        ref.current.rotation.x += delta;
+      }
+      if (backward) {
+        ref.current.rotation.x -= delta;
+      }
     }
   });
   return (
@@ -49,22 +57,29 @@ export default function RenderBox() {
         </div>
       )}
       <div onKeyDown={handleKeyPress} tabIndex={0} role="button">
-        <Canvas
-          style={{ height: `${heightState}px`, backgroundColor: 'teal' }}
-          onCreated={({ gl }) => {
-            window.addEventListener('resize', () => {
-              setHeightState(window.innerHeight);
-              gl.setSize(gl.domElement.clientWidth, window.innerHeight);
-            });
-          }}
+        <KeyboardControls
+          map={[
+            { name: 'forward', keys: ['w'] },
+            { name: 'backward', keys: ['s'] }
+          ]}
         >
-          <ambientLight intensity={0} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-          <pointLight position={[-10, -10, -10]} />
-          <Box position={[-1.2, 0, 0]} />
-          <Box position={[1.2, 0, 0]} />
-          <OrbitControls />
-        </Canvas>
+          <Canvas
+            style={{ height: `${heightState}px`, backgroundColor: 'teal' }}
+            onCreated={({ gl }) => {
+              window.addEventListener('resize', () => {
+                setHeightState(window.innerHeight);
+                gl.setSize(gl.domElement.clientWidth, window.innerHeight);
+              });
+            }}
+          >
+            <ambientLight intensity={0} />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+            <pointLight position={[-10, -10, -10]} />
+            <Box position={[-1.2, 0, 0]} />
+            <Box position={[1.2, 0, 0]} />
+            <OrbitControls />
+          </Canvas>
+        </KeyboardControls>
       </div>
     </>
   );
