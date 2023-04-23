@@ -22,12 +22,18 @@ Please note that the first run may be slow, but subsequent runs will be faster.
 
 The following packages are included in this boilerplate template:
 
+- React Three Fiber
+- React Three Drei
 - Tailwind CSS
 - useSound
 - Prettier
 - ESLint
 - Zustand
 - Framer Motion
+
+```warn
+Update the configuration settings in the `src-tauri/tauri.conf.json` file according to your needs.
+```
 
 ## Contributing
 
