@@ -18,6 +18,9 @@ npm run tauri dev
 
 Please note that the first run may be slow, but subsequent runs will be faster.
 
+> **Note**
+> After saying Play Demo, the ESC key becomes active. In this way, you can return to the main Menu again.
+
 ## Packages Included
 
 The following packages are included in this boilerplate template:
