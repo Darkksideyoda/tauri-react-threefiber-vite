@@ -4,12 +4,14 @@ This is a desktop 3D boilerplate starter template project developed with Tauri a
 
 ## Getting Started
 
-To get started with this project, simply clone the repository and run the following command in the project directory:
-
+To get started with this project, simply clone the repository:
+```console
+git clone https://github.com/Darkksideyoda/tauri-react-threefiber-vite.git
+```
+and run the following command in the project directory
 ```console
 npm install
 ```
-
 After that, run the following command to start the development server:
 
 ```console
