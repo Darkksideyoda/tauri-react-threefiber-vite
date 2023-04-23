@@ -1,5 +1,7 @@
 # tauri-react-threefiber-vite
 
+<img src="https://darkksideyoda.github.io/Urlimages/Screenshot%202023-04-23%20at%2003.34.11%202.png" />
+
 This is a desktop 3D boilerplate starter template project developed with Tauri and React. The project is configured with Vite and includes extra packages such as Tailwind CSS for styling, useSound for controlling audio, Prettier and ESLint for code formatting and linting, Zustand for global state management, and Framer Motion for simple animations.
 
 ## Getting Started
